@@ -4,7 +4,7 @@ public class Algoritmos extends Disciplina {
     private boolean temLaboratorio;
 
     public Algoritmos(String nome, int codigo, int creditos, int cargaHoraria, boolean temLaboratorio) {
-        super(nome, codigo, creditos, cargaHoraria);
+        super(nome, codigo, creditos);
         this.temLaboratorio = temLaboratorio;
     }
 

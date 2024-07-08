@@ -120,38 +120,40 @@ public class MainController {
     }
 
     private void registerSubject() {
-        // Identificar a aba ativa usando o método getIndex ou algo similar fornecido pelo MainFrame
+        // Identificar a aba ativa usando o método getIndex ou algo similar fornecido
+        // pelo MainFrame
         int selectedIndex = mainFrame.getRegisterView().getSelectedTabIndex();
-    
+
         // Obter as informações comuns de todas as abas
-        String codigo = mainFrame.getRegisterView().getCodeField();
+        int codigo = Integer.parseInt(mainFrame.getRegisterView().getCodeField());
         String nome = mainFrame.getRegisterView().getNameField();
         String professorNome = mainFrame.getRegisterView().getTeacherField();
         int creditos = Integer.parseInt(mainFrame.getRegisterView().getCreditsField());
         Professor professor = new Professor(professorNome); // Assumindo que o professor é criado assim
-    
+
         Disciplina novaDisciplina = null;
-    
+
         // Dependendo do índice da aba, criar a disciplina apropriada
         switch (selectedIndex) {
             case 0: // POO
                 String linguagem = mainFrame.getRegisterView().getLanguageField();
-                novaDisciplina = new POO(nome, selectedIndex, creditos, creditos, linguagem);
+                novaDisciplina = new POO(nome, codigo, creditos, creditos, linguagem);
                 break;
             case 1: // Algoritmos
                 String lab = mainFrame.getRegisterView().getLabField();
-                if(lab.equalsIgnoreCase("sim")) {
-                    novaDisciplina = new Algoritmos(nome, selectedIndex, creditos, creditos, true);
+                if (lab.equalsIgnoreCase("sim")) {
+                    novaDisciplina = new Algoritmos(nome, codigo, creditos, creditos, true);
                 } else {
-                    novaDisciplina = new Algoritmos(nome, selectedIndex, creditos, creditos, false);
+                    novaDisciplina = new Algoritmos(nome, codigo, creditos, creditos, false);
                 }
                 break;
             case 2: // Lógica de Programação
                 int dificuldade = Integer.parseInt(mainFrame.getRegisterView().getDifficultyField());
-                novaDisciplina = new LogicaParaProgramacao(nome, selectedIndex, creditos, creditos, dificuldade);
+                novaDisciplina = new LogicaParaProgramacao(nome, selectedIndex, creditos,
+                        creditos, dificuldade);
                 break;
         }
-    
+
         // Configurar o professor da disciplina
         if (novaDisciplina != null) {
             novaDisciplina.setProfessor(professor);
@@ -217,8 +219,9 @@ public class MainController {
     private void navigateToSubjects() {
         this.displayAllSubjects();
         this.mainFrame.showCard("Subjects");
-        for(Disciplina d : gerenciador.getAllDisciplinas()) {
-            System.out.println("Id do professor " + d.getProfessor().getNome() + ": " + d.getProfessor().getId() + " | Disciplina: " + d.getNome());
+        for (Disciplina d : gerenciador.getAllDisciplinas()) {
+            System.out.println("Id do professor " + d.getProfessor().getNome() + ": " + d.getProfessor().getId()
+                    + " | Disciplina: " + d.getNome());
         }
     }
 

@@ -4,7 +4,7 @@ public class POO extends Disciplina {
     private String linguagem;
 
     public POO(String nome, int codigo, int creditos, int cargaHoraria, String linguagem) {
-        super(nome, codigo, creditos, cargaHoraria);
+        super(nome, codigo, creditos);
         this.linguagem = linguagem;
     }
 

@@ -4,7 +4,7 @@ public class LogicaParaProgramacao extends Disciplina {
     private int dificuldade;
 
     public LogicaParaProgramacao(String nome, int codigo, int creditos, int cargaHoraria, int dificuldade) {
-        super(nome, codigo, creditos, cargaHoraria);
+        super(nome, codigo, creditos);
         this.dificuldade = dificuldade;
     }
 
@@ -15,7 +15,6 @@ public class LogicaParaProgramacao extends Disciplina {
     @Override
     public String toString() {
         return "Lógica para Programação: " + getNome() + " | Código: " + getCodigo() + "| Créditos: " + getCreditos()
-                + " | Carga Horária: " + getCargaHoraria() + " | Dificuldade: "
-                + dificuldade;
+                + " | Dificuldade: " + dificuldade;
     }
 }

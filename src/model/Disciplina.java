@@ -7,15 +7,13 @@ public abstract class Disciplina {
     private String nome;
     private int codigo;
     private int creditos;
-    private int cargaHoraria;
     private List<Aluno> alunosMatriculados;
     private Professor professor;
 
-    public Disciplina(String nome, int codigo, int creditos, int cargaHoraria) {
+    public Disciplina(String nome, int codigo, int creditos) {
         this.nome = nome;
         this.codigo = codigo;
         this.creditos = creditos;
-        this.cargaHoraria = cargaHoraria;
         this.alunosMatriculados = new ArrayList<>();
     }
 
@@ -33,10 +31,6 @@ public abstract class Disciplina {
 
     public int getCreditos() {
         return creditos;
-    }
-
-    public int getCargaHoraria() {
-        return cargaHoraria;
     }
 
     public List<Aluno> getAlunosMatriculados() {
