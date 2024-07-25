@@ -180,7 +180,7 @@ public class MainController {
 
     private void displayFilterSubjects() {
         String name = mainFrame.getSubjectsView().getFilterText();
-        List<Disciplina> disciplinas = gerenciador.filterByName(name);
+        List<Disciplina> disciplinas = gerenciador.searchByName(name);
         Object[][] data = new Object[disciplinas.size()][4];
         for (int i = 0; i < disciplinas.size(); i++) {
             Disciplina d = disciplinas.get(i);

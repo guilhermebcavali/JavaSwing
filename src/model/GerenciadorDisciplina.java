@@ -76,13 +76,6 @@ public class GerenciadorDisciplina {
                 .collect(Collectors.toList());
     }
 
-    // Método para filtrar disciplinas por nome
-    public List<Disciplina> filterByName(String nome) {
-        return disciplinas.stream()
-                .filter(d -> d.getNome().toLowerCase().contains(nome.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
     public long getTotalCount() { // porque long?
         return disciplinas.size();
     }

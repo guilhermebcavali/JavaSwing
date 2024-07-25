@@ -59,11 +59,13 @@ public class RegisterView extends JPanel {
     gbc.insets = new Insets(10, 0, 10, 0);
 
     subjectCodeField = new JTextField();
+    ((AbstractDocument) this.subjectCodeField.getDocument())
+        .setDocumentFilter(new NumericLengthRestrictedDocumentFilter(10));
     subjectNameField = new JTextField();
     subjectTeacherField = new JTextField();
     subjectCreditsField = new JTextField();
     ((AbstractDocument) this.subjectCreditsField.getDocument())
-    .setDocumentFilter(new NumericLengthRestrictedDocumentFilter(10));
+        .setDocumentFilter(new NumericLengthRestrictedDocumentFilter(10));
 
     // Adicionando labels e campos de texto comuns
     addLabelAndTextField(panel, gbc, "Código da Disciplina", subjectCodeField);
@@ -83,9 +85,9 @@ public class RegisterView extends JPanel {
 
     gbc.gridy++;
     gbc.anchor = GridBagConstraints.CENTER;
-    gbc.insets = new Insets(2, 0, 10, 0); // Ajuste para reduzir o espaço entre o label e o campo
+    gbc.insets = new Insets(2, 0, 10, 0);
     panel.add(textField, gbc);
-    gbc.insets = new Insets(10, 0, 10, 0); // Restaurar o espaçamento padrão para os próximos componentes
+    gbc.insets = new Insets(10, 0, 10, 0);
   }
 
   private JPanel createSpecificPanel(String type) {
